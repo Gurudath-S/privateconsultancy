@@ -12,6 +12,8 @@ import { EmployeehomeComponent } from './employeehome/employeehome.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { EmployeeupdateComponent } from './employeeupdate/employeeupdate.component';
 import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import { EmployeedetailsComponent } from './employeedetails/employeedetails.comp
     AppRoutingModule,
     FormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

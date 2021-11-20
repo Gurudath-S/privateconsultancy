@@ -1,18 +1,46 @@
-<p>employeeupdate works!</p>
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
----- Include the above in your HEAD tag -------- --> 
 
-	<div class="container">
+<div [hidden]="IsmodelShow" class="modal-dialog">
+	<div class="modal-content">
+	 <div class="modal-header">
+	   <button type="button" class="close" (click)="close()">&times;</button>
+
+	   
+<form>
+	<!-- Name input -->
+	<div class="form-outline mb-4">
+	  <input type="text" id="form5Example1" class="form-control" />
+	  <label class="form-label" for="form5Example1">Name</label>
+	</div>
+  
+	<!-- Email input -->
+	<div class="form-outline mb-4">
+	  <input type="email" id="form5Example2" class="form-control" />
+	  <label class="form-label" for="form5Example2">Email address</label>
+	</div>
+  
+	<!-- Checkbox -->
+	<div class="form-check d-flex justify-content-center mb-4">
+	  <input
+		class="form-check-input me-2"
+		type="checkbox"
+		value=""
+		id="form5Example3"
+		checked
+	  />
+	  <label class="form-check-label" for="form5Example3">
+		I have read and agree to the terms
+	  </label>
+	</div>
+  
+	<!-- Submit button -->
+	<button type="submit" class="btn btn-primary btn-block mb-4">Subscribe</button>
+  </form>
+	
+
+	<!-- <div class="container">
 			<div class="main">
 				<div class="main-center">
-				<h5>Sign up once and watch any of our free demos.</h5>
 					<form class="" method="post" action="#">
 						
 						<div class="form-group">
@@ -58,6 +86,9 @@
 				<button type="submit" class="btn btn-secondary" (click)="saveUpdate()">SUBMIT</button>
 						
 					</form>
-				</div><!--main-center"-->
-			</div><!--main-->
-		</div><!--container-->
+				</div>
+			</div>
+		 </div> -->
+	</div>
+</div>
+</div >

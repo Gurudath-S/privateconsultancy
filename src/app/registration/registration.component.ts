@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-registration',
@@ -12,15 +13,16 @@ export class RegistrationComponent implements OnInit {
 
   constructor(private router: Router, private employeeService: EmployeeService) { }
 
-  employee: Employee = new Employee();
+  newemployee: Employee = new Employee();
   ngOnInit(): void {
   }
 
   onSubmit() {
-    this.employeeService.registerEmployee(this.employee).subscribe(
+    if(this.employeeService.getEmployeeByEmail(this.newemployee.email) == null){
+    this.employeeService.registerEmployee(this.newemployee).subscribe(
       data => {
         this.employeeService.employee = data;
-        console.log(this.employee);
+        console.log(this.newemployee);
         alert("Registration Successful");
         this.router.navigate(['/login']);
       },
@@ -29,5 +31,9 @@ export class RegistrationComponent implements OnInit {
       }
     );
   }
+  else{
+    alert("Email already exists");
+  }
 
+}
 }

@@ -17,11 +17,15 @@ export class EmployeeService {
   }
 
   getEmployeeByEmail(email: string): Observable<Employee> {
-    return this.http.get<Employee>(`http://localhost:8080/employees/`+email);
+   return this.http.get<Employee>(`http://localhost:8080/login/`+email);
   }
 
   registerEmployee(employee: Employee): Observable<Employee> {
    return this.http.post<Employee>(`http://localhost:8080/employees`, employee);
+  }
+
+  checkEmailExists(email: string): Observable<boolean> {
+    return this.http.get<boolean>(`http://localhost:8080/employees/checkEmailExists`+email);
   }
 
 }

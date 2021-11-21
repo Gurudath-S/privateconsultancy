@@ -38,4 +38,8 @@ export class EmployeedetailsComponent implements OnInit {
     this.router.navigate(['/employees/skills'+this.id]);
   }
 
+
+  goBackHome(){
+    this.router.navigate(['/home']);
+  }
 }

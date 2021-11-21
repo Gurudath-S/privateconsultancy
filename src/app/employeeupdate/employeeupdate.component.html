@@ -1,2 +1,65 @@
-<p>employeeupdate works!</p>
+<nav class="navbar navbar-dark bg-dark navbar navbar-expand-sm ">
+
+    <button class="btn btn-link text-white nav-link" (click)="logout()">logout</button>
+    </nav>
 Welcome {{employee.name}}
+<div class="container">
+    <h3>Skills</h3>
+<table class="table table-striped">
+    <thead>
+      <tr>
+          <th>Skill Id</th>
+          <th>SkillName</th>
+         
+      </tr>
+    </thead>
+      <tbody>
+          <tr *ngFor="let skill of skills">
+              <td>{{skill.sid}}</td>
+              <td>{{skill.sName}}</td>
+              
+          </tr>
+          <tr>
+              <td>
+
+              </td>
+              <td>
+                    <input type="text" [(ngModel)]="newSkill.sName" name="sName" placeholder="Enter new Skill">
+              </td>
+              <td>
+                  <button class="btn btn-primary" (click)="addSkill(newSkill.sName)">Add Skill</button>
+              </td>
+
+          </tr>
+      </tbody>
+  </table>
+</div>
+<div class="container">
+    <h3>Certifications</h3>
+<table class="table table-striped">
+    <thead>
+      <tr>
+          <th>Certification Id</th>
+          <th>Certification Name</th>
+      </tr>
+    </thead>
+      <tbody>
+          <tr *ngFor="let certificate of certifications">
+              <td>{{certificate.cid}}</td>
+              <td>{{certificate.cName}}</td>
+          </tr>
+          <tr>
+            <td>
+
+            </td>
+            <td>
+                  <input type="text" [(ngModel)]="newCertificate.cName" name="cName" placeholder="Enter new Certification">
+            </td>
+            <td>
+                <button class="btn btn-primary" (click)="addCertification(newCertificate.cName)">Add Certification</button>
+            </td>
+
+        </tr>
+      </tbody>
+  </table>
+</div>

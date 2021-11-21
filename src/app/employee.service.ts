@@ -47,5 +47,9 @@ export class EmployeeService {
     return this.http.put<Certification>(`http://localhost:8080/employees/certifications/${id}`, certification);
   }
 
+  // removeCertificationByEmployeeId(id: number, certification: Certification): void {
+  //  this.http.delete(`http://localhost:8080/employees/certifications/${id}`, certification);
+  // }
+
 }
 

@@ -1,9 +1,10 @@
 <nav class="navbar navbar-dark bg-dark navbar navbar-expand-sm ">
+    <p class="navbar-brand" >Welcome {{employee.name }}</p>
 
     <button class="btn btn-link text-white nav-link" (click)="logout()">logout</button>
       <!-- Navbar content -->
     </nav>
-<p>Welcome {{employee.name}}</p>
+
 <div class="container-fluid well span6">
 	<div class="row-fluid">
         
@@ -46,8 +47,9 @@
                   </tr>
               </tbody>
           </table>
+          <button class="btn btn-info" (click)="updateEmployee()">UpdateDetails</button>
         </div>
-        <button (click)="updateEmployee()">UpdateDetails</button>
+      
 </div>
 </div>
 

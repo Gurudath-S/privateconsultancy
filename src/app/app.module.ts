@@ -30,7 +30,6 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     RouterModule,
     HttpClientModule,
-    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

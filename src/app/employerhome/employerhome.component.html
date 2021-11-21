@@ -39,3 +39,23 @@
   </table>
   </div>
 </div>
+<div class="container">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email Id</th>
+        <th>Actions</th>
+    </tr>
+  </thead>
+    <tbody>
+        <tr *ngFor="let employee of employeeList">
+            <td>{{employee.name}}</td>
+            <td>{{employee.email}}</td>
+            <td>
+              <button (click)= "viewEmployee(employee.id)" class="btn btn-info" >view</button>
+             </td> 
+        </tr>
+    </tbody>
+</table></div>

@@ -4,13 +4,13 @@
         <div class="note">
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" [(ngModel)]="newemployee.role" value="employer" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" [(ngModel)]="employee.role" value="employer" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
              .. employer
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" [(ngModel)]="newemployee.role" value="employee" id="flexRadioDefault2" checked>
+            <input class="form-check-input" type="radio" name="flexRadioDefault" [(ngModel)]="employee.role" value="employee" id="flexRadioDefault2" checked>
             <label class="form-check-label" for="flexRadioDefault2">
              .. employee
             </label>
@@ -21,18 +21,18 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name *" value="" [(ngModel)]="newemployee.name" />
+                        <input type="text" class="form-control" placeholder="Your Name *" value="" [(ngModel)]="employee.name" />
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="email *" value="" [(ngModel)]="newemployee.email" />
+                        <input type="text" class="form-control" placeholder="email *" value="" [(ngModel)]="employee.email" />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Password *" value="" [(ngModel)]="newemployee.password" />
+                        <input type="text" class="form-control" placeholder="Your Password *" value="" [(ngModel)]="employee.password" />
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Confirm Password *" value="" />
+                        <input type="text" class="form-control" placeholder="Confirm Password *" value=""/>
                     </div>
                 </div>
             </div>

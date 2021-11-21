@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Employee } from '../employee';
-import { EmployeeupdateComponent } from '../employeeupdate/employeeupdate.component';
 
 @Component({
   selector: 'app-employeehome',
@@ -14,7 +12,7 @@ export class EmployeehomeComponent implements OnInit {
 
   @Input() employee: Employee;
 
-  constructor(private router: Router, private dialogRef: MatDialog) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     
@@ -26,10 +24,6 @@ export class EmployeehomeComponent implements OnInit {
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
-  }
-
-  openDialog(): void {
-    this.dialogRef.open(EmployeeupdateComponent);
   }
 
  

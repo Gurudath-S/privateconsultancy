@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employee } from '../employee';
@@ -11,23 +12,24 @@ import { EmployeeService } from '../employee.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private router: Router, private employeeService: EmployeeService) { }
+  constructor(private router: Router, private employeeService: EmployeeService,private http: HttpClient) { }
 
-  newemployee: Employee = new Employee();
+  employee: Employee = new Employee();
+
   ngOnInit(): void {
   }
 
   onSubmit() {
-    console.log(this.newemployee.email);
-    console.log(this.employeeService.getEmployeeByEmail(this.newemployee.email));
-    if(this.employeeService.getEmployeeByEmail(this.newemployee.email)==null){
-      this.employeeService.registerEmployee(this.newemployee);
-      this.router.navigate(['/login']);
-    }
 
-    else{
-      alert("Email already exists");
-    }
+      this.http.post(`http://localhost:8080/employees`, this.employee).subscribe(data => {
+        console.log(data);
+        alert("Registration Successful");
+        this.router.navigate(['/login']);
+      });
+   
+      // this.employeeService.registerEmployee(this.employee);
+      // alert("Registration Successful");
+      // this.router.navigate(['/login']);
 
 }
 }

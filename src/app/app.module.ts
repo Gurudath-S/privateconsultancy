@@ -10,10 +10,8 @@ import { LoginComponent } from './login/login.component';
 import { EmployerhomeComponent } from './employerhome/employerhome.component';
 import { EmployeehomeComponent } from './employeehome/employeehome.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { EmployeeupdateComponent } from './employeeupdate/employeeupdate.component';
 import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EmployeeupdateComponent } from './employeeupdate/employeeupdate.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EmployerhomeComponent,
     EmployeehomeComponent,
     RegistrationComponent,
-    EmployeeupdateComponent,
-    EmployeedetailsComponent
+    EmployeedetailsComponent,
+    EmployeeupdateComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +29,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     RouterModule,
     HttpClientModule,
-    MatDialogModule,
-    BrowserModule,
-    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

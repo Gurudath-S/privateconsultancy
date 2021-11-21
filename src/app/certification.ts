@@ -1,4 +1,4 @@
 export class Certification {
-    id: number;
-    name: string;
+    cid: number;
+    cName: string;
 }

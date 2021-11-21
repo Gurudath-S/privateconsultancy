@@ -22,4 +22,12 @@ export class EmployeeupdateComponent implements OnInit {
     });
   }
 
+  addSkill(skill: string) {
+    console.log(skill);
+  }
+
+  addCertification(certification: string) {
+    console.log(certification);
+  }
+
 }

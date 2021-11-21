@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(){
-    this.http.get<Employee>(`http://localhost:8080/login/`+this.employee.email).subscribe(data => {
+    this.http.get<Employee>(`http://localhost:8080/employees/email/`+this.employee.email).subscribe(data => {
         this.verifyUser = data;
         console.log(this.verifyUser);
         this.validateAndRoute();

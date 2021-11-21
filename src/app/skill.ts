@@ -1,4 +1,4 @@
 export class Skill {
-    id: number;
-    name: string;
+    sid: number;
+    sName: string;
 }

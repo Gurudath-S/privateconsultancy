@@ -12,6 +12,7 @@ import { EmployeehomeComponent } from './employeehome/employeehome.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
 import { EmployeeupdateComponent } from './employeeupdate/employeeupdate.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { EmployeeupdateComponent } from './employeeupdate/employeeupdate.compone
     FormsModule,
     RouterModule,
     HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

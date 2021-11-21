@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Certification } from '../certification';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
+import { Skill } from '../skill';
 
 @Component({
   selector: 'app-employeehome',
@@ -13,6 +15,8 @@ export class EmployeehomeComponent implements OnInit {
 
   employee: Employee;
   id: number;
+  skills: Skill[];
+  certifications: Certification[];
 
   constructor(private router: Router, private route: ActivatedRoute, private employeeService: EmployeeService) { }
 
@@ -23,6 +27,12 @@ export class EmployeehomeComponent implements OnInit {
       console.log(data);
       this.employee=data;
     });
+    this.employeeService.getSkillsByEmployeeId(this.id).subscribe(data=>{
+      this.skills=data;});
+
+    this.employeeService.getCertificationsByEmployeeId(this.id).subscribe(data=>{
+      this.certifications=data;});
+
     console.log(this.employee);
   }
   updateEmployee() {

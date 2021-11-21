@@ -3,8 +3,53 @@
     <button class="btn btn-link text-white nav-link" (click)="logout()">logout</button>
       <!-- Navbar content -->
     </nav>
-<p>employeehome works!</p>
 <p>Welcome {{employee.name}}</p>
+<div class="container-fluid well span6">
+	<div class="row-fluid">
+        
+        <div class="span8">
+            <h3>User Name: {{employee.name}}</h3>
+            <h6>Email: {{employee.email}}</h6>
+        </div>
+      
+
+        <div class="container">
+            <h3>Skills</h3>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>SkillName</th>
+              </tr>
+            </thead>
+              <tbody>
+                  <tr *ngFor="let skill of skills">
+                      <td>{{skill.sid}}</td>
+                      <td>{{skill.sName}}</td>
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+        <div class="container">
+            <h3>Certifications</h3>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Certification Name</th>
+              </tr>
+            </thead>
+              <tbody>
+                  <tr *ngFor="let certificate of certifications">
+                      <td>{{certificate.cid}}</td>
+                      <td>{{certificate.cName}}</td>
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+        
+</div>
+</div>
 <button (click)="updateEmployee()">UpdateDetails</button>
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
+import { Skill } from '../skill';
 
 @Component({
   selector: 'app-employeedetails',
@@ -14,6 +15,7 @@ export class EmployeedetailsComponent implements OnInit {
 
   id: number;
   employee: Employee;
+  skillList: Skill[];
 
   ngOnInit(): void {
     this.id=this.route.snapshot.params['id'];
@@ -21,7 +23,19 @@ export class EmployeedetailsComponent implements OnInit {
     this.employeeService.getEmployeeById(this.id).subscribe(data=>{
       this.employee=data;
     });
-    console.log(this.employee.email);
+
+    this.getSkillList();
+  }
+
+  getSkillList(){
+    this.employeeService.getSkillsByEmployeeId(this.id).subscribe(data=>{
+      this.skillList=data;
+      console.log(this.skillList);
+    });
+  }
+
+  showSkillsAndCertificates(){
+    this.router.navigate(['/employees/skills'+this.id]);
   }
 
 }

@@ -47,26 +47,44 @@ export class EmployeeupdateComponent implements OnInit {
   }
 
   addSkill(skill: string) {
-    confirm("Are you sure you want to add this skill?");
+    if(confirm("Are you sure you want to add this skill?")){
+
+    
     console.log(skill);
     this.employeeService.addSkillByEmployeeId(this.id,this.newSkill).subscribe(data=>{
       console.log(data);
       this.router.navigate(['/update/'+this.id]);
+      window.location.reload();
     });
+  }
+  else{
+    alert("cancelled");
+  }
     
   }
 
   addCertification(certification: string) {
     console.log(certification);
-    // confirm("Are you sure you want to add this certification?");
-    this.employeeService.addCertificationByEmployeeId(this.id,this.newCertificate).subscribe(data=>{
+    if(confirm("Are you sure you want to add this certification?")){
+      this.employeeService.addCertificationByEmployeeId(this.id,this.newCertificate).subscribe(data=>{
       console.log(data);
       this.router.navigate(['/update/'+this.id]);
     });
+    }
+    else{
+      alert("cancelled");
+    }
+    
   }
 
   removeSkill(skill: string) {
-    console.log(skill);
+    if(confirm("Are you sure you want to remove this skill?")){
+      console.log(skill);
+    }
+    else{
+      console.log("cancelled");
+    }
+    
   }
 
   removeCertification(certification: string) {
@@ -74,10 +92,12 @@ export class EmployeeupdateComponent implements OnInit {
   }
 
   logout() {
-    confirm("Are you sure you want to logout?");
-    
-    localStorage.removeItem('token');
+   if( confirm("Are you sure you want to logout?")){
+      localStorage.removeItem('token');
     this.router.navigate(['/login']);
+   }
+    
+   
   }
     
 

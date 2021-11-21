@@ -6,6 +6,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { EmployeehomeComponent } from './employeehome/employeehome.component';
 import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
 import { EmployeeupdateComponent } from './employeeupdate/employeeupdate.component';
+import { UnauthorizedaccessComponent } from './unauthorizedaccess.component';
+import { EmployeeAuthorizationGuard } from './employee-authorization-guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -15,7 +17,8 @@ const routes: Routes = [
   {path:'employeehome/:id',component:EmployeehomeComponent},
   {path:'view', component:EmployeedetailsComponent},
   {path:'update/:id', component:EmployeeupdateComponent},
-  {path:'employeedetails/:id', component:EmployeedetailsComponent}
+  {path:'employeedetails/:id', component:EmployeedetailsComponent, canActivate: [EmployeeAuthorizationGuard]},
+  {path:'unauthorized', component: UnauthorizedaccessComponent}
 ];
 
 @NgModule({

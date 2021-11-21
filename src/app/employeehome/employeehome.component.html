@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-dark navbar navbar-expand-sm ">
-    <p class="navbar-brand" >Welcome {{employee.name }}</p>
+    <p class="navbar-brand" >Welcome {{employee.name |uppercase}}</p>
 
-    <button class="btn btn-link text-white nav-link" (click)="logout()">logout</button>
+    <button class="btn btn-link text-white nav-link ml-auto" (click)="logout()">logout</button>
       <!-- Navbar content -->
     </nav>
 

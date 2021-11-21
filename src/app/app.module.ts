@@ -13,6 +13,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
 import { EmployeeupdateComponent } from './employeeupdate/employeeupdate.component';
 import { CommonModule } from '@angular/common';
+import { UnauthorizedaccessComponent } from './unauthorizedaccess.component';
+import { EmployeeAuthorizationGuard } from './employee-authorization-guard';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { CommonModule } from '@angular/common';
     EmployeehomeComponent,
     RegistrationComponent,
     EmployeedetailsComponent,
-    EmployeeupdateComponent
+    EmployeeupdateComponent,
+    UnauthorizedaccessComponent
   ],
   imports: [
     BrowserModule,
@@ -30,8 +33,9 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     RouterModule,
     HttpClientModule,
+    CommonModule
   ],
-  providers: [],
+  providers: [EmployeeAuthorizationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

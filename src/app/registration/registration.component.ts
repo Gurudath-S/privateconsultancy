@@ -17,7 +17,7 @@ export class RegistrationComponent implements OnInit {
 
   employee: Employee = new Employee();
   checkPassword: String;
-  exists:boolean=true;
+  employeeExists: boolean;
 
 
 
@@ -26,16 +26,38 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit() {
     console.log(this.employee);
-    this.employeeService.registerEmployee(this.employee).subscribe(data => {
+
+    //verified registration
+   this.employeeService.verifyEmployeeExists(this.employee.email).subscribe(
+      (data: boolean) => {
+        this.employeeExists = data;
+        this.register();
+      });
+      
+
+  }
+
+  register() {
+    if(this.employeeExists){
+      alert("Email already exists");
+    }
+    else{
+      confirm("Ensure correctness of data before registration");
+      if(this.checkPassword!=this.employee.password){
+        alert("Passwords do not match");
+      }
+      else{
+         this.employeeService.registerEmployee(this.employee).subscribe(data => {
       console.log(data);});
-      this.router.navigate(['/login']);
-    }
+        this.router.navigate(['/login']);
+      }
+      
+      
+    
 
-    logout(){
-      this.router.navigate(['/login']);
     }
-
   }
 
 
 
+}

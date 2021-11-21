@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-// import { Http2ServerRequest } from 'http2';
 import { Employee } from '../employee';
 
 @Component({

@@ -53,7 +53,9 @@ export class EmployeedetailsComponent implements OnInit {
 
 
   goBackHome(){
-    confirm("Are you sure you want to go back to home page?");
-    this.router.navigate(['/home'+this.employee.id]);
+    if(confirm("Are you sure you want to go back to home page?")){
+      this.router.navigate(['/home/'+this.employee.id]);
+    }
+    
   }
 }

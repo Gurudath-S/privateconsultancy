@@ -21,6 +21,9 @@ export class EmployeehomeComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+
+    if(this.employee==undefined||this.employee==null){
+      this.employee = new Employee();}
     
     this.id=this.route.snapshot.params['id'];
     this.employeeService.getEmployeeById(this.id).subscribe(data=>{
@@ -40,9 +43,11 @@ export class EmployeehomeComponent implements OnInit {
     this.router.navigate(['/update/'+this.id]);
   }
   logout() {
-    confirm("Are you sure you want to logout?");
-    localStorage.removeItem('token');
+    if(confirm("Are you sure you want to logout?")){
+      localStorage.removeItem('token');
     this.router.navigate(['/login']);
+    }
+    
   }
 
 

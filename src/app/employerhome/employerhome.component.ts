@@ -13,11 +13,15 @@ export class EmployerhomeComponent implements OnInit {
   constructor(private router: Router, private employeeService: EmployeeService, private route: ActivatedRoute) { }
 
   id: number;
-  employee: Employee;
+  employer: Employee;
   employeeList: Employee[];
   ngOnInit(): void {
+    if(this.employer==undefined||this.employer==null){
+      this.employer = new Employee();
+    }
+   
       this.id = this.route.snapshot.params['id'];
-      this.employeeService.getEmployeeById(this.id).subscribe(employee => this.employee = employee);
+      this.employeeService.getEmployeeById(this.id).subscribe(employee => this.employer = employee);
      this.getEmployees();
   }
 
@@ -26,8 +30,11 @@ export class EmployerhomeComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem('token');
+    if(confirm("Are you sure you want to logout?")){
+       localStorage.removeItem('token');
     this.router.navigate(['/login']);
+    }
+   
   }
 
   viewEmployee(id: number) {

@@ -11,5 +11,10 @@ export class Employee {
     skills: Skill[];
     certificates: Certification[];
   username: string;
+
+  getRole(): string {
+    return this.role;
+  }
+  constructor(){}
     
 }

@@ -51,5 +51,13 @@ export class EmployeeService {
   //  this.http.delete(`http://localhost:8080/employees/certifications/${id}`, certification);
   // }
 
+  verifyEmployeeExists(email: string): Observable<boolean> {
+    return this.http.get<boolean>(`http://localhost:8080/login/${email}`);
+  }
+
+  isAuth(id:number): Observable<boolean> {
+    return this.http.get<boolean>(`http://localhost:8080/employees/auth/${id}`);
+  }
+
 }
 

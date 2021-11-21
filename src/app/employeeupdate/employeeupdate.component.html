@@ -1,8 +1,8 @@
 <nav class="navbar navbar-dark bg-dark navbar navbar-expand-sm ">
 
-    <button class="btn btn-link text-white nav-link" (click)="logout()">logout</button>
+    <button class="btn btn-link text-white nav-link ml-auto" (click)="logout()">logout</button>
     </nav>
-You can Add/Remove skills and certifications here {{employee.name}}
+
 <div class="container">
     <h3>Skills</h3>
 <table class="table table-striped">
@@ -10,6 +10,7 @@ You can Add/Remove skills and certifications here {{employee.name}}
       <tr>
           <th>Skill Id</th>
           <th>SkillName</th>
+          <th>Action</th>
          
       </tr>
     </thead>
@@ -17,6 +18,9 @@ You can Add/Remove skills and certifications here {{employee.name}}
           <tr *ngFor="let skill of skills">
               <td>{{skill.sid}}</td>
               <td>{{skill.sName}}</td>
+              <td>
+                    <button class="btn btn-danger" (click)="removeSkill(skill.sName)">Delete</button>
+              </td>
               
           </tr>
           <tr>
@@ -27,6 +31,7 @@ You can Add/Remove skills and certifications here {{employee.name}}
                     <input type="text" [(ngModel)]="newSkill.sName" name="sName" placeholder="Enter new Skill">
               </td>
               <td>
+              
                   <button class="btn btn-primary" (click)="addSkill(newSkill.sName)">Add Skill</button>
               </td>
  <!--private consultancy firm-->
@@ -41,12 +46,14 @@ You can Add/Remove skills and certifications here {{employee.name}}
       <tr>
           <th>Certification Id</th>
           <th>Certification Name</th>
+          <th>Action</th>
       </tr>
     </thead>
       <tbody>
           <tr *ngFor="let certificate of certifications">
               <td>{{certificate.cid}}</td>
               <td>{{certificate.cName}}</td>
+              <td></td>
           </tr>
           <tr>
             <td>
@@ -63,3 +70,4 @@ You can Add/Remove skills and certifications here {{employee.name}}
       </tbody>
   </table>
 </div>
+<br><br>

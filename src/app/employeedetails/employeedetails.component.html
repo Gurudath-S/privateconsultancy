@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-dark bg-dark navbar navbar-expand-sm ">
 
-    <button class="btn btn-link text-white nav-link" (click)="goBackHome()">BACK</button>
+    <!-- <button class="btn btn-link text-white nav-link" (click)="goBackHome()">BACK</button> -->
     </nav>
 <div class="container">
     <div class="row">
@@ -11,13 +11,8 @@
                 <div class="card-body">
                     <div class="card-title mb-4">
                         <div class="d-flex justify-content-start">
-                            <!-- <div class="image-container">
-                                <img src="http://placehold.it/150x150" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
-                                <div class="middle">
-                                    <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
-                                    <input type="file" style="display: none;" id="profilePicture" name="file" />
-                                </div>
-                            </div> -->
+                           
+                        
                             <div class="userData ml-3">
                                 <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);">{{employee.name | uppercase}}</a></h2>
                             </div>
@@ -33,9 +28,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Basic Info</a>
                                 </li>
-                                <!-- <li class="nav-item">
-                                    <button class="nav-link btn-link" (click)="showSkillsAndCertificates()" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Show Skills and Certificates</button>
-                                </li> -->
+                                
                             </ul>
                             <div class="tab-content ml-1" id="myTabContent">
                                 <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
@@ -65,9 +58,7 @@
                                     <hr />
 
                                 </div>
-                                <!-- <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
-                                    Facebook, Google, Twitter Account that are connected to this account
-                                </div> -->
+                                
                             </div>
                         </div>
                     </div>
@@ -83,13 +74,7 @@
         <div class="card-body">
             <div class="card-title mb-4">
                 <div class="d-flex justify-content-start">
-                    <!-- <div class="image-container">
-                        <img src="http://placehold.it/150x150" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
-                        <div class="middle">
-                            <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
-                            <input type="file" style="display: none;" id="profilePicture" name="file" />
-                        </div>
-                    </div> -->
+                   
                     <div class="userData ml-3">
                         <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);">SKILLS</a></h2>
                     </div>
@@ -111,6 +96,25 @@
                           </tr>
                       </tbody>
                   </table>
+
+                  <div class="container">
+                    <h3>Certifications</h3>
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                          <th>Id</th>
+                          <th>Certification Name</th>
+                      </tr>
+                    </thead>
+                      <tbody>
+                          <tr *ngFor="let certificate of certifications">
+                              <td>{{certificate.cid}}</td>
+                              <td>{{certificate.cName}}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+                  <!-- <button class="btn btn-info" (click)="updateEmployee()">UpdateDetails</button> -->
+                </div>
             </div>
 
         </div>

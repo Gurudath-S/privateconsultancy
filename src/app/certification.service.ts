@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Certificate } from 'crypto';
 import { Observable } from 'rxjs';
 import { Certification } from './certification';
 import { Employee } from './employee';
@@ -21,6 +20,6 @@ export class CertificationService {
   }
 
   deleteCertification(employee: Employee,certificate: Certification): Observable<Certification>{
-    return this.http.delete<Certification>(`http://localhost:8080/employee/`+ employee.id+`/certification/`+certificate.id);
+    return this.http.delete<Certification>(`http://localhost:8080/employee/`+ employee.id+`/certification/`+certificate.cid);
   }
 }

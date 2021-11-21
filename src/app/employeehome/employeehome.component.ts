@@ -40,6 +40,7 @@ export class EmployeehomeComponent implements OnInit {
     this.router.navigate(['/update/'+this.id]);
   }
   logout() {
+    confirm("Are you sure you want to logout?");
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }

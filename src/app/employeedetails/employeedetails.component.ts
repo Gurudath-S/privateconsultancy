@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Certification } from '../certification';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { Skill } from '../skill';
@@ -16,6 +17,7 @@ export class EmployeedetailsComponent implements OnInit {
   id: number;
   employee: Employee;
   skillList: Skill[];
+  certifications: Certification[];
 
   ngOnInit(): void {
     this.id=this.route.snapshot.params['id'];
@@ -23,8 +25,12 @@ export class EmployeedetailsComponent implements OnInit {
     this.employeeService.getEmployeeById(this.id).subscribe(data=>{
       this.employee=data;
     });
+    this.employeeService.getCertificationsByEmployeeId(this.id).subscribe(data=>{
+      this.certifications=data;});
+
 
     this.getSkillList();
+    // this.getCertificationList();
   }
 
   getSkillList(){
@@ -34,12 +40,20 @@ export class EmployeedetailsComponent implements OnInit {
     });
   }
 
+  // getCertificationList(){
+  //   this.employeeService.getCertificationsByEmployeeId(this.id).subscribe(data=>{
+  //     this.certifications=data;
+  //     console.log(this.certifications);
+  //   });
+  // }
+
   showSkillsAndCertificates(){
     this.router.navigate(['/employees/skills'+this.id]);
   }
 
 
   goBackHome(){
-    this.router.navigate(['/home']);
+    confirm("Are you sure you want to go back to home page?");
+    this.router.navigate(['/home'+this.employee.id]);
   }
 }

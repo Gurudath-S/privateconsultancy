@@ -20,12 +20,18 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit() {
+    if(this.employeeService.getEmployeeByEmail(this.employee.email)==null){
 
       this.http.post(`http://localhost:8080/employees`, this.employee).subscribe(data => {
         console.log(data);
         alert("Registration Successful");
         this.router.navigate(['/login']);
       });
+    }
+
+    else{
+      alert("Email already exists, try a different one");
+    }
    
       // this.employeeService.registerEmployee(this.employee);
       // alert("Registration Successful");

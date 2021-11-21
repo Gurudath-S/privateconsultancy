@@ -5,15 +5,17 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { EmployeehomeComponent } from './employeehome/employeehome.component';
 import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
+import { EmployeeupdateComponent } from './employeeupdate/employeeupdate.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'home', component: EmployerhomeComponent},
+  {path: 'home/:id', component: EmployerhomeComponent},
   {path:'register', component: RegistrationComponent},
-  {path:'employeehome',component:EmployeehomeComponent},
+  {path:'employeehome/:id',component:EmployeehomeComponent},
   {path:'view', component:EmployeedetailsComponent},
-  // {path:'employeedetails/:id', component:EmployeedetailsComponent}
+  {path:'update/:id', component:EmployeeupdateComponent},
+  {path:'employeedetails/:id', component:EmployeedetailsComponent}
 ];
 
 @NgModule({

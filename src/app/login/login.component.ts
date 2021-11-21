@@ -41,12 +41,12 @@ export class LoginComponent implements OnInit {
     if(this.verifyUser.password == this.employee.password){
       console.log("Login Successful");
       if(this.verifyUser.role == "employer"){
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/'+this.verifyUser.id]);
       }
 
       else
       {
-        this.router.navigate(['/employeehome']);
+        this.router.navigate(['/employeehome/'+this.verifyUser.id]);
       }
       
     }

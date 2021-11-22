@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'view', component:EmployeedetailsComponent,canActivate:[EmployeeLoginGuard]},
   {path:'update/:id', component:EmployeeupdateComponent,canActivate:[EmployeeLoginGuard]},
   {path:'employeedetails/:id', component:EmployeedetailsComponent, canActivate: [EmployeeAuthorizationGuard,EmployeeLoginGuard]},
-  {path:'unauthorized', component: UnauthorizedaccessComponent}
+  {path:'unauthorized', component: UnauthorizedaccessComponent,canActivate:[EmployeeLoginGuard]},
 ];
 
 @NgModule({

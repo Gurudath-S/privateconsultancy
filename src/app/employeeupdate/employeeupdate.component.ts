@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Certification } from '../certification';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
+import { LoginService } from '../login.service';
 import { Skill } from '../skill';
 
 @Component({
@@ -13,7 +14,7 @@ import { Skill } from '../skill';
 })
 export class EmployeeupdateComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private employeeService: EmployeeService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private employeeService: EmployeeService, private router: Router,private loggedin:LoginService) { }
 
   id:number;
   employee: Employee=new Employee();
@@ -93,6 +94,7 @@ export class EmployeeupdateComponent implements OnInit {
 
   logout() {
    if( confirm("Are you sure you want to logout?")){
+     this.loggedin.setIsLoggedIn(false);
       localStorage.removeItem('token');
     this.router.navigate(['/login']);
    }

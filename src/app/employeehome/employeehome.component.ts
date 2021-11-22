@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Certification } from '../certification';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
+import { LoginService } from '../login.service';
 import { Skill } from '../skill';
 
 @Component({
@@ -18,7 +19,7 @@ export class EmployeehomeComponent implements OnInit {
   skills: Skill[];
   certifications: Certification[];
 
-  constructor(private router: Router, private route: ActivatedRoute, private employeeService: EmployeeService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private employeeService: EmployeeService,private loggedin:LoginService) { }
 
   ngOnInit(): void {
 
@@ -44,6 +45,7 @@ export class EmployeehomeComponent implements OnInit {
   }
   logout() {
     if(confirm("Are you sure you want to logout?")){
+      this.loggedin.setIsLoggedIn(false);
       localStorage.removeItem('token');
     this.router.navigate(['/login']);
     }

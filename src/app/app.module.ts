@@ -15,6 +15,7 @@ import { EmployeeupdateComponent } from './employeeupdate/employeeupdate.compone
 import { CommonModule } from '@angular/common';
 import { UnauthorizedaccessComponent } from './unauthorizedaccess.component';
 import { EmployeeAuthorizationGuard } from './employee-authorization-guard';
+import { EmployeeLoginGuard } from './employee-login-guard';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { EmployeeAuthorizationGuard } from './employee-authorization-guard';
     HttpClientModule,
     CommonModule
   ],
-  providers: [EmployeeAuthorizationGuard],
+  providers: [EmployeeAuthorizationGuard, EmployeeLoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

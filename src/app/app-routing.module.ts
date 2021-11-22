@@ -8,16 +8,17 @@ import { EmployeedetailsComponent } from './employeedetails/employeedetails.comp
 import { EmployeeupdateComponent } from './employeeupdate/employeeupdate.component';
 import { UnauthorizedaccessComponent } from './unauthorizedaccess.component';
 import { EmployeeAuthorizationGuard } from './employee-authorization-guard';
+import { EmployeeLoginGuard } from './employee-login-guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'home/:id', component: EmployerhomeComponent},
+  {path: 'home/:id', component: EmployerhomeComponent,canActivate:[EmployeeLoginGuard]},
   {path:'register', component: RegistrationComponent},
-  {path:'employeehome/:id',component:EmployeehomeComponent},
-  {path:'view', component:EmployeedetailsComponent},
-  {path:'update/:id', component:EmployeeupdateComponent},
-  {path:'employeedetails/:id', component:EmployeedetailsComponent, canActivate: [EmployeeAuthorizationGuard]},
+  {path:'employeehome/:id',component:EmployeehomeComponent,canActivate:[EmployeeLoginGuard]},
+  {path:'view', component:EmployeedetailsComponent,canActivate:[EmployeeLoginGuard]},
+  {path:'update/:id', component:EmployeeupdateComponent,canActivate:[EmployeeLoginGuard]},
+  {path:'employeedetails/:id', component:EmployeedetailsComponent, canActivate: [EmployeeAuthorizationGuard,EmployeeLoginGuard]},
   {path:'unauthorized', component: UnauthorizedaccessComponent}
 ];
 
